@@ -1,0 +1,4 @@
+#Sat Aug 27 23:07:46 IST 2022
+base.0=E\:\\Rough projects\\manek_demo\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
