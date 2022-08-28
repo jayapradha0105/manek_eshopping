@@ -24,14 +24,12 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       try {
         List<Product> prodList = [];
         totalProducts = await dbHelper.getProductCount();
-        int tot = await dbHelper.getCartCount();
 
-        // print("this is len $tot  $totalProducts");
 
         if (totalProducts == 0) {
           await service.getProductsList().then((respObj) {
             prodList = respObj;
-
+            totalProducts = prodList.length;
             var temp = prodList.map((e) {
               dbHelper.insertProduct(e);
             });
