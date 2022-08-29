@@ -44,6 +44,7 @@ class _ProductListState extends State<ProductList> {
         },
         builder: (context, state) {
           if (state is ProductsLoadedState) {
+            Size size = MediaQuery.of(context).size;
             return Scaffold(
                 appBar: callAppBar(context, state),
                 body: Container(
@@ -75,8 +76,8 @@ class _ProductListState extends State<ProductList> {
                                 orientation == Orientation.portrait ? 2 : 3,
                             childAspectRatio:
                                 orientation == Orientation.portrait
-                                    ? (1 / 1.4)
-                                    : (1 / 1),
+                                    ? ((size.width/3) / (size.height /4.1))
+                                    : ((size.width/5) / (size.height /2.5)),
                             crossAxisSpacing: 15.0,
                             mainAxisSpacing: 20.0,
                           ),
@@ -119,7 +120,6 @@ class _ProductListState extends State<ProductList> {
                                                 fontWeight: FontWeight.bold,
                                                 color: kBlackColor,
                                                 fontSize: 20))),
-                                    const SizedBox(height: 10),
                                     Padding(
                                         padding:
                                             const EdgeInsets.only(left: 15),
@@ -130,8 +130,8 @@ class _ProductListState extends State<ProductList> {
                                             Flexible(
                                                 child: Text(
                                                     //  element.title!,
-                                                    element.title!.length > 25
-                                                        ? "${(element.title!).substring(0, 25)}..."
+                                                     element.title!.length > 20
+                                                        ? "${(element.title!).substring(0, 20)}..."
                                                         : element.title!,
                                                     style: const TextStyle(
                                                         color: kTertiaryColor,
